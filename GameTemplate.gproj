@@ -1,0 +1,80 @@
+<project>
+ <properties autorotation="0" fps="60" scaleMode="3" iosDevice="0" xcodeVersion="0" packageName="com.yourdomain.yourapp" logicalHeight="800" logicalWidth="480" retinaDisplay="1" assetsOnly="0" orientation="1" architecture="1">
+  <imageScales/>
+ </properties>
+ <file source="tahoma.ttf"/>
+ <folder name="levels"/>
+ <folder name="audio">
+  <file source="audio/hit.wav"/>
+  <file source="audio/complete.mp3"/>
+  <file source="audio/main.mp3"/>
+ </folder>
+ <folder name="classes">
+  <file source="classes/AceSlide.lua"/>
+  <file source="classes/GameManager.lua"/>
+  <file source="classes/Settings.lua"/>
+  <file source="classes/View.lua"/>
+  <file source="classes/Popup.lua"/>
+  <file source="classes/Sounds.lua"/>
+  <file source="classes/Music.lua"/>
+  <file source="classes/TextWrap.lua"/>
+  <file source="classes/scenemanager.lua"/>
+  <file source="classes/lib.lua"/>
+  <file source="classes/json.lua"/>
+  <file source="classes/gtween.lua"/>
+  <file source="classes/easing.lua"/>
+  <file source="classes/dataSaver.lua"/>
+  <file source="classes/button.lua"/>
+ </folder>
+ <folder name="images">
+  <file source="../BubbleCanon/images/ball.png"/>
+  <file source="images/next_up.png"/>
+  <file source="images/next_down.png"/>
+  <file source="images/packselect_up.png"/>
+  <file source="images/packselect_down.png"/>
+  <file source="images/levelselect_up.png"/>
+  <file source="images/levelselect_down.png"/>
+  <file source="images/crate_locked.png"/>
+  <file source="images/help_up.png"/>
+  <file source="images/help_down.png"/>
+  <file source="images/options_up.png"/>
+  <file source="images/options_down.png"/>
+  <file source="images/start_up.png"/>
+  <file source="images/start_down.png"/>
+  <file source="images/soundson_up.png"/>
+  <file source="images/soundson_down.png"/>
+  <file source="images/soundsoff_up.png"/>
+  <file source="images/soundsoff_down.png"/>
+  <file source="images/resume_up.png"/>
+  <file source="images/resume_down.png"/>
+  <file source="images/reset_up.png"/>
+  <file source="images/reset_down.png"/>
+  <file source="images/pause_up.png"/>
+  <file source="images/pause_down.png"/>
+  <file source="images/musicon_up.png"/>
+  <file source="images/musicon_down.png"/>
+  <file source="images/musicoff_up.png"/>
+  <file source="images/musicoff_down.png"/>
+  <file source="images/menu_up.png"/>
+  <file source="images/menu_down.png"/>
+  <file source="images/back_up.png"/>
+  <file source="images/back_down.png"/>
+  <file source="images/button_up.png"/>
+  <file source="images/button_down.png"/>
+  <file source="images/gideros_mobile.png"/>
+  <file source="images/right-up.png"/>
+  <file source="images/right-down.png"/>
+  <file source="images/left-up.png"/>
+  <file source="images/left-down.png"/>
+  <file source="images/crate.png"/>
+ </folder>
+ <file source="options.lua"/>
+ <file source="config.lua"/>
+ <file source="packs.json"/>
+ <file source="start.lua"/>
+ <file source="pack_select.lua"/>
+ <file source="help.lua"/>
+ <file source="main.lua"/>
+ <file source="level_select.lua"/>
+ <file source="level.lua"/>
+</project>
