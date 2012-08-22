@@ -10,6 +10,8 @@ conf = {
 	textureFilter = true,
 	--scaling mode
 	scaleMode = "letterbox",
+	--keep application awake
+	keepAwake = true,
 	--logical width of screen
 	width = 480,
 	--logical height of screen

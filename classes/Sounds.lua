@@ -32,6 +32,6 @@ end
 
 function Sounds:play(sound)
 	if self.isOn and self.sounds[sound] then
-		self.sounds[sound][math.random(1, #self.sounds)]:play()
+		self.sounds[sound][math.random(1, #self.sounds[sound])]:play()
 	end
 end
