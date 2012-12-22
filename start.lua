@@ -24,7 +24,10 @@ function start:init()
 	local screen = Bitmap.new(Texture.new("images/gideros_mobile.png", conf.textureFilter))
 	self:addChild(screen)
 	screen:setPosition((conf.width-screen:getWidth())/2, (conf.height-screen:getHeight())/2)
-	
+	self:addEventListener("enterEnd", self.onEnterEnd, self)
+end
+
+function start:onEnterEnd()
 	--create menu
 	--with 20px padding between buttons
 	local menu = VerticalView.new({padding = 20, easing = conf.easing})

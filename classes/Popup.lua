@@ -53,17 +53,17 @@ function Popup:init(config)
 		end
 	end)
 	self:addEventListener(Event.TOUCHES_BEGIN, function(e)
-		if self:hitTestPoint(e.x, e.y) then
+		if self:hitTestPoint(e.touch.x, e.touch.y) then
 			e:stopPropagation()
 		end
 	end)
 	self:addEventListener(Event.TOUCHES_MOVE, function(e)
-		if self:hitTestPoint(e.x, e.y) then
+		if self:hitTestPoint(e.touch.x, e.touch.y) then
 			e:stopPropagation()
 		end
 	end)
 	self:addEventListener(Event.TOUCHES_END, function(e)
-		if self:hitTestPoint(e.x, e.y) then
+		if self:hitTestPoint(e.touch.x, e.touch.y) then
 			e:stopPropagation()
 		end
 	end)

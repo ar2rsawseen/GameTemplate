@@ -84,7 +84,7 @@ function View:reverse()
 	for i = 1, children do
 		local sprite = self:getChildAt(i)
 		if(sprite.original)then
-			GTween.new(sprite, self.conf.duration, sprite.original, {ease = self.conf.easing})
+			sprite.tween:resetValues(sprite.original)
 		end
 	end
 end
@@ -108,7 +108,7 @@ function View:addChild(item, x, y)
 		self.spacer:setPosition(width, self.total + height)
 		
 		--animate
-		GTween.new(item, self.conf.duration, animate, {ease = self.conf.easing})
+		item.tween = GTween.new(item, self.conf.duration, animate, {ease = self.conf.easing})
 	else
 		item:setPosition(x, y)
 	end
@@ -135,6 +135,7 @@ function View:replaceChild(oldItem, newItem)
 		local sprite = self:getChildAt(i)
 		if(sprite == oldItem)then
 			local x, y = oldItem:getPosition()
+			sprite.tween = oldItem.tween
 			self:__removeChild(oldItem)
 			newItem:setPosition(x,y)
 			self:__addChild(newItem)
@@ -168,7 +169,7 @@ function VerticalView:addChild(item)
 		self.spacer:setPosition(width, self.total + height)
 		
 		--animate
-		GTween.new(item, self.conf.duration, animate, {ease = self.conf.easing})
+		item.tween = GTween.new(item, self.conf.duration, animate, {ease = self.conf.easing})
 	else
 		item:setPosition(0, self.total)
 	end
@@ -209,7 +210,7 @@ function HorizontalView:addChild(item)
 		self.spacer:setPosition(self.total + width, height)
 		
 		--animate
-		GTween.new(item, self.conf.duration, animate, {ease = self.conf.easing})
+		item.tween = GTween.new(item, self.conf.duration, animate, {ease = self.conf.easing})
 	else
 		item:setPosition(self.total, 0)
 	end
@@ -278,7 +279,7 @@ function GridView:addChild(item)
 		self.spacer:setPosition(self.width + width, self.height  + height)
 		
 		--animate
-		GTween.new(item, self.conf.duration, animate, {ease = self.conf.easing})
+		item.tween = GTween.new(item, self.conf.duration, animate, {ease = self.conf.easing})
 	else
 		item:setPosition(self.startX, self.startY)
 	end
