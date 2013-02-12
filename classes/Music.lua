@@ -10,7 +10,7 @@ end
 --turn music on
 function Music:on()
 	if not self.channel then
-		self.channel = self.theme:play(0, math.huge)
+		self.channel = self.theme:play(0, true)
 		self:dispatchEvent(self.eventOn)
 	end
 end
