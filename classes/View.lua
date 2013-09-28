@@ -43,7 +43,8 @@ function View:init(config)
 		padding = 0,
 		easing = easing.outBack,
 		animate = true,
-		duration = 1
+		duration = 1, 
+		align = "center"
 	}
 	
 	if config then
@@ -147,6 +148,8 @@ VerticalView = Core.class(View)
 
 function VerticalView:addChild(item)
 	local width, height = getDimensions(item)
+	item.__width = width
+	item.__height = height
 	--calculate positions
 	if self.total > 0 then
 		self.total = self.total + self.conf.padding
@@ -161,6 +164,7 @@ function VerticalView:addChild(item)
 		animate.rotation = 0
 		animate.y = self.total
 		animate.x = 0
+		item.__animate = animate
 		
 		--copy original properties
 		item.original = getProperties(item)
@@ -182,12 +186,41 @@ function VerticalView:addChild(item)
 		self.width = width
 	end
 	self:__addChild(item)
+	self:reposition()
+end
+
+function VerticalView:reposition()
+	local sprite
+	if self.conf.align ~= "left" then
+		for i = 1, self:getNumChildren() do
+			sprite = self:getChildAt(i)
+			if sprite ~= self.spacer then
+				if self.conf.align == "center" then
+					if self.conf.animate then
+						sprite.__animate.x = (self.width - sprite.__width)/2
+						sprite.tween:resetValues(sprite.__animate)
+					else
+						sprite:setX((self.width - sprite:getWidth())/2)
+					end
+				else
+					if self.conf.animate then
+						sprite.__animate.x = (self.width - sprite.__width)
+						sprite.tween:resetValues(sprite.__animate)
+					else
+						sprite:setX((self.width - sprite:getWidth()))
+					end
+				end
+			end
+		end
+	end
 end
 
 HorizontalView = Core.class(View)
 
 function HorizontalView:addChild(item)
 	local width, height = getDimensions(item)
+	item.__width = width
+	item.__height = height
 	--calculate positions
 	if self.total > 0 then
 		self.total = self.total + self.conf.padding
@@ -202,6 +235,7 @@ function HorizontalView:addChild(item)
 		animate.rotation = 0
 		animate.y = 0
 		animate.x = self.total
+		item.__animate = animate
 		
 		--copy original properties
 		item.original = getProperties(item)
@@ -223,6 +257,33 @@ function HorizontalView:addChild(item)
 		self.height = height
 	end
 	self:__addChild(item)
+	self:reposition()
+end
+
+function HorizontalView:reposition()
+	local sprite
+	if self.conf.align ~= "top" then
+		for i = 1, self:getNumChildren() do
+			sprite = self:getChildAt(i)
+			if sprite ~= self.spacer then
+				if self.conf.align == "center" then
+					if self.conf.animate then
+						sprite.__animate.y = (self.height - sprite.__height)/2
+						sprite.tween:resetValues(sprite.__animate)
+					else
+						sprite:setY((self.height - sprite:getHeight())/2)
+					end
+				else
+					if self.conf.animate then
+						sprite.__animate.y = (self.height - sprite.__height)
+						sprite.tween:resetValues(sprite.__animate)
+					else
+						sprite:setY((self.height - sprite:getHeight()))
+					end
+				end
+			end
+		end
+	end
 end
 
 GridView = Core.class(View)
