@@ -31,7 +31,6 @@ function level_select:init()
 	--back button
 	local backButton = Button.new(Bitmap.new(Texture.new("images/back_up.png", conf.textureFilter)), Bitmap.new(Texture.new("images/back_down.png", conf.textureFilter)))
 	backButton:setPosition((conf.width-backButton:getWidth())/2, conf.height-backButton:getHeight())
-	self:addChild(backButton)
 
 	backButton:addEventListener("click", 
 		function()	
@@ -42,6 +41,9 @@ function level_select:init()
 	--create grid
 	local grid = GridView.new({cols = 3, padding = 35, easing = conf.easing})
 	self:addChild(grid)
+	
+	--add back button to the stage
+	self:addChild(backButton)
 	
 	--just for the awesome effect of separate box tweening let's create a timer instead of loop
 	local i = 1
