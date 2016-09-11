@@ -27,7 +27,6 @@
   <file source="classes/button.lua"/>
  </folder>
  <folder name="images">
-  <file source="../BubbleCanon/images/ball.png"/>
   <file source="images/next_up.png"/>
   <file source="images/next_down.png"/>
   <file source="images/packselect_up.png"/>
